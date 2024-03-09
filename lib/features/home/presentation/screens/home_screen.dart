@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tap_invest/features/home/presentation/widgets/home_widget.dart';
+import 'package:tap_invest/features/home/presentation/widgets/partners_wrapper_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -23,7 +24,14 @@ class HomeScreen extends StatelessWidget {
       ),
       body: const SingleChildScrollView(
           child: Column(
-        children: [HomeWidget()],
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          HomeWidget(),
+          Divider(),
+          Flexible(fit: FlexFit.loose, child: PartnerWrapperWidget()),
+          Divider()
+        ],
       )),
       bottomNavigationBar: BottomAppBar(
         elevation: 10,

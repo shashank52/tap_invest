@@ -62,7 +62,11 @@ class HomeWidget extends StatelessWidget {
             dimension: 16,
           ),
           // grid view
-          const Text('Grid View')
+          const Text('Grid View'),
+          const SizedBox.square(
+            dimension: 16,
+          ),
+          
         ],
       ),
     );
