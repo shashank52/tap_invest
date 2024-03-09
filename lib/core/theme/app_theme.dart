@@ -64,18 +64,65 @@ class AppTheme {
   );
 
   static AppBarTheme appBarTheme = AppBarTheme(
+      surfaceTintColor: Colors.transparent,
       centerTitle: false,
       titleSpacing: AppPadding.mediumLeftPadding,
       color: AppColors.stone50,
       foregroundColor: AppColors.green700,
       iconTheme: const IconThemeData(color: AppColors.green700));
-
+  static CardTheme cardTheme = CardTheme(
+    color: AppColors.stone50,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+        side: const BorderSide(color: AppColors.stone200, width: 1)),
+  );
+  static ElevatedButtonThemeData elevatedButtonThemeData =
+      ElevatedButtonThemeData(
+    style: ButtonStyle(
+      padding: MaterialStateProperty.all(
+        const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      ),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+      backgroundColor: MaterialStateProperty.resolveWith(
+        (states) {
+          if (states.contains(MaterialState.pressed)) {
+            return AppColors.greenPigment;
+          }
+          return AppColors.greenPigment;
+        },
+      ),
+      side: MaterialStateProperty.all(
+        const BorderSide(
+          color: AppColors.darkSpringGreen,
+          width: 1,
+        ),
+      ),
+      textStyle: MaterialStateProperty.all(
+        const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          color: AppColors.white,
+        ),
+      ),
+    ),
+  );
+  static BoxDecoration boxDecoration = BoxDecoration(
+      borderRadius: BorderRadius.circular(8),
+      border: Border.all(width: 1, color: AppColors.stone200));
   static ThemeData theme = ThemeData(
       fontFamily: AppTheme.fontFamily,
       scaffoldBackgroundColor: AppColors.stone50,
       useMaterial3: true,
-      bottomNavigationBarTheme:
-          const BottomNavigationBarThemeData(backgroundColor: AppColors.white),
-      bottomAppBarTheme: const BottomAppBarTheme(color: Colors.white),
+      cardTheme: cardTheme,
+      elevatedButtonTheme: elevatedButtonThemeData,
+      bottomAppBarTheme: BottomAppBarTheme(
+          color: Colors.white,
+          surfaceTintColor: AppColors.white,
+          elevation: 40,
+          shadowColor: AppColors.charcoal.withOpacity(0.4)),
       appBarTheme: appBarTheme);
 }

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tap_invest/core/extensions/context.dart';
+import 'package:tap_invest/core/theme/colors.dart';
+import 'package:tap_invest/features/home/presentation/widgets/documents_widget.dart';
+import 'package:tap_invest/features/home/presentation/widgets/highlight_widget.dart';
 import 'package:tap_invest/features/home/presentation/widgets/home_widget.dart';
 import 'package:tap_invest/features/home/presentation/widgets/partners_wrapper_widget.dart';
 
@@ -22,6 +26,9 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      // Single child view for scrolling
+      // it will be replaced once data is received from api with
+      // ListView.separated where separation will be divider
       body: const SingleChildScrollView(
           child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -30,34 +37,48 @@ class HomeScreen extends StatelessWidget {
           HomeWidget(),
           Divider(),
           Flexible(fit: FlexFit.loose, child: PartnerWrapperWidget()),
-          Divider()
+          Divider(),
+          Flexible(child: HighlightWidget()),
+          Divider(),
+          Flexible(child: DocumentWidget())
         ],
       )),
       bottomNavigationBar: BottomAppBar(
-        elevation: 10,
-        // color: AppColors.white,
+        height: 84,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(8),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Flexible(child: Text('FILLED')),
-                    Flexible(child: Text('30%'))
-                  ],
-                ),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Expanded(
+                      child: Text(
+                    'FILLED',
+                    style: context.theme.primaryTextTheme.labelSmall
+                        ?.copyWith(color: AppColors.charcoal.withOpacity(0.6)),
+                  )),
+                  Expanded(
+                    child: Text(
+                      '30%',
+                      style: context.theme.primaryTextTheme.titleLarge
+                          ?.copyWith(
+                              color: AppColors.charcoal,
+                              fontWeight: FontWeight.w500),
+                    ),
+                  )
+                ],
               ),
             ),
             const Spacer(),
             Flexible(
               child: ElevatedButton(
                   onPressed: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.fromLTRB(16, 20, 16, 20),
-                    child: Text('Tap to Invest'),
+                  child: Text(
+                    'Tap to Invest',
+                    style: context.theme.primaryTextTheme.bodyMedium?.copyWith(
+                        color: AppColors.white, fontWeight: FontWeight.w600),
                   )),
             )
           ],

@@ -18,7 +18,10 @@ class PartnerWrapperWidget extends StatelessWidget {
           SizedBox.square(
             dimension: 32,
           ),
-          Flexible(child: PartnerWidget(title: 'Backed By'))
+          Flexible(child: PartnerWidget(title: 'Backed By')),
+          SizedBox.square(
+            dimension: 24,
+          )
         ],
       ),
     );

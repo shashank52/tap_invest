@@ -9,4 +9,7 @@ class AppColors {
   static const Color garkJungleGreen = Color(0xFF152420);
   static const Color stone300 = Color(0xFFD6D3D1);
   static const Color stone700 = Color(0xFF44403C);
+  static const Color charcoal = Color(0xFF374151);
+  static const Color greenPigment = Color(0xFF16A34A);
+  static const Color darkSpringGreen= Color(0xFF15803D);
 }
