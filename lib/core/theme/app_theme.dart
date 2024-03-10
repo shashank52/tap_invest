@@ -126,12 +126,19 @@ class AppTheme {
   static BoxDecoration boxDecoration = BoxDecoration(
       borderRadius: BorderRadius.circular(8),
       border: Border.all(width: 1, color: AppColors.stone200));
+  static InputDecorationTheme inputDecorationTheme = InputDecorationTheme(
+      focusColor: AppColors.stone700,
+      border: InputBorder.none,
+      contentPadding: const EdgeInsets.all(8),
+      hintStyle: primaryTextTheme.displayMedium
+          ?.copyWith(fontWeight: FontWeight.w600, color: AppColors.stone400));
   static ThemeData theme = ThemeData(
       fontFamily: AppTheme.fontFamily,
       scaffoldBackgroundColor: AppColors.stone50,
       useMaterial3: true,
       cardTheme: cardTheme,
       chipTheme: chipThemeData,
+      inputDecorationTheme: inputDecorationTheme,
       elevatedButtonTheme: elevatedButtonThemeData,
       bottomAppBarTheme: BottomAppBarTheme(
           color: Colors.white,

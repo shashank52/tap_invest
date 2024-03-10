@@ -43,7 +43,7 @@ class MetricsStatsView extends StatelessWidget {
                             style: context.theme.primaryTextTheme.titleLarge
                                 ?.copyWith(
                                     fontWeight: FontWeight.w500,
-                                    color: AppColors.quickSilver),
+                                    color: AppColors.stone400),
                           ),
                           const SizedBox.square(
                             dimension: 4,
@@ -53,7 +53,7 @@ class MetricsStatsView extends StatelessWidget {
                             style: context.theme.primaryTextTheme.titleLarge
                                 ?.copyWith(
                                     fontWeight: FontWeight.w500,
-                                    color: AppColors.quickSilver),
+                                    color: AppColors.stone400),
                           )
                         ],
                       ),
@@ -87,7 +87,7 @@ class MetricsStatsView extends StatelessWidget {
                               style: context.theme.primaryTextTheme.titleLarge
                                   ?.copyWith(
                                       fontWeight: FontWeight.w500,
-                                      color: AppColors.quickSilver),
+                                      color: AppColors.stone400),
                             )
                           ],
                         ),
@@ -119,7 +119,7 @@ class MetricsStatsView extends StatelessWidget {
                               style: context.theme.primaryTextTheme.titleLarge
                                   ?.copyWith(
                                       fontWeight: FontWeight.w500,
-                                      color: AppColors.quickSilver),
+                                      color: AppColors.stone400),
                             ),
                             const SizedBox.square(
                               dimension: 4,
@@ -129,7 +129,7 @@ class MetricsStatsView extends StatelessWidget {
                               style: context.theme.primaryTextTheme.titleLarge
                                   ?.copyWith(
                                       fontWeight: FontWeight.w500,
-                                      color: AppColors.quickSilver),
+                                      color: AppColors.stone400),
                             )
                           ],
                         ),
@@ -154,7 +154,7 @@ class MetricsStatsView extends StatelessWidget {
                             ),
                             const Icon(
                               Icons.percent,
-                              color: AppColors.quickSilver,
+                              color: AppColors.stone400,
                             ),
                           ],
                         ),

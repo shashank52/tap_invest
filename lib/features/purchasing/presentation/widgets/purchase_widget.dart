@@ -13,156 +13,186 @@ class PurchaseWidget extends StatefulWidget {
 }
 
 class _PurchaseWidgetState extends State<PurchaseWidget> {
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Flexible(
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(24, 36, 24, 20),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 36, 24, 20),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Spacer(),
                   Flexible(
                     child: Text(
                       'ENTER AMOUNT',
+                      style: context.theme.primaryTextTheme.titleSmall
+                          ?.copyWith(
+                              color: AppColors.stone500.withOpacity(0.7),
+                              fontWeight: FontWeight.w600),
                     ),
                   ),
-                  Spacer()
                 ],
               ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.fromLTRB(24, 0, 24, 20),
-            child: TextField(),
-          ),
-          // error widget
-          const SizedBox.square(
-            dimension: 16,
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 20, 26, 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Total Returns',
-                  style: context.theme.primaryTextTheme.titleSmall
-                      ?.copyWith(color: AppColors.independence),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 0, 24, 20),
+              child: IntrinsicWidth(
+                child: TextField(
+                  inputFormatters: const [],
+                  style: context.theme.primaryTextTheme.headlineMedium
+                      ?.copyWith(color: AppColors.stone700),
+                  textAlign: TextAlign.center,
+                  textAlignVertical: TextAlignVertical.center,
+                  decoration: InputDecoration(
+                      hintText: ' Min 50,000',
+                      prefixIcon: SvgPicture.asset(
+                        Assets.ruppee,
+                        matchTextDirection: true,
+                      ),
+                      prefixIconConstraints:
+                          const BoxConstraints(minWidth: 14, minHeight: 36)),
+                  controller: _controller,
+                  autofocus: true,
+                  keyboardType: TextInputType.number,
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SvgPicture.asset(
-                      Assets.ruppee,
-                      height: 15,
-                    ),
-                    const SizedBox.square(
-                      dimension: 2,
-                    ),
-                    Text('56,555',
-                        style: context.theme.primaryTextTheme.titleLarge
-                            ?.copyWith(
-                                color: AppColors.independence,
-                                fontWeight: FontWeight.w500)),
-                  ],
-                )
-              ],
+              ),
             ),
-          ),
-          const Divider(),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 20, 26, 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      'Net Yield',
-                      style: context.theme.primaryTextTheme.titleSmall
-                          ?.copyWith(color: AppColors.independence),
-                    ),
-                    const SizedBox.square(
-                      dimension: 8,
-                    ),
-                    Text(
-                      'IRR',
-                      style: context.theme.primaryTextTheme.titleSmall
-                          ?.copyWith(
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.green700),
-                    ),
-                    const SizedBox.square(
-                      dimension: 8,
-                    ),
-                    const Icon(
-                      Icons.info_outline,
-                      color: AppColors.green700,
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text('13.1',
-                        style: context.theme.primaryTextTheme.titleLarge
-                            ?.copyWith(
-                                color: AppColors.independence,
-                                fontWeight: FontWeight.w500)),
-                    const SizedBox.square(
-                      dimension: 2,
-                    ),
-                    const Icon(
-                      Icons.percent,
-                      color: AppColors.quickSilver,
-                      weight: 8,
-                    )
-                  ],
-                )
-              ],
+            // error widget
+            const SizedBox.square(
+              dimension: 16,
             ),
-          ),
-          const Divider(),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 20, 26, 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Tenure',
-                  style: context.theme.primaryTextTheme.titleSmall
-                      ?.copyWith(color: AppColors.independence),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text('61',
-                        style: context.theme.primaryTextTheme.titleLarge
-                            ?.copyWith(
-                                color: AppColors.independence,
-                                fontWeight: FontWeight.w500)),
-                    const SizedBox.square(
-                      dimension: 4,
-                    ),
-                    Text(
-                      'days',
-                      style: context.theme.primaryTextTheme.bodyMedium
-                          ?.copyWith(
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.quickSilver),
-                    )
-                  ],
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 20, 26, 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Total Returns',
+                    style: context.theme.primaryTextTheme.titleSmall
+                        ?.copyWith(color: AppColors.independence),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SvgPicture.asset(
+                        Assets.ruppee,
+                        height: 15,
+                      ),
+                      const SizedBox.square(
+                        dimension: 2,
+                      ),
+                      Text('56,555',
+                          style: context.theme.primaryTextTheme.titleLarge
+                              ?.copyWith(
+                                  color: AppColors.independence,
+                                  fontWeight: FontWeight.w500)),
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+            const Divider(),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 20, 26, 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Net Yield',
+                        style: context.theme.primaryTextTheme.titleSmall
+                            ?.copyWith(color: AppColors.independence),
+                      ),
+                      const SizedBox.square(
+                        dimension: 8,
+                      ),
+                      Text(
+                        'IRR',
+                        style: context.theme.primaryTextTheme.titleSmall
+                            ?.copyWith(
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.green700),
+                      ),
+                      const SizedBox.square(
+                        dimension: 8,
+                      ),
+                      const Icon(
+                        Icons.info_outline,
+                        color: AppColors.green700,
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('13.1',
+                          style: context.theme.primaryTextTheme.titleLarge
+                              ?.copyWith(
+                                  color: AppColors.independence,
+                                  fontWeight: FontWeight.w500)),
+                      const SizedBox.square(
+                        dimension: 2,
+                      ),
+                      const Icon(
+                        Icons.percent,
+                        color: AppColors.stone400,
+                        weight: 8,
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+            const Divider(),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 20, 26, 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Tenure',
+                    style: context.theme.primaryTextTheme.titleSmall
+                        ?.copyWith(color: AppColors.independence),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text('61',
+                          style: context.theme.primaryTextTheme.titleLarge
+                              ?.copyWith(
+                                  color: AppColors.independence,
+                                  fontWeight: FontWeight.w500)),
+                      const SizedBox.square(
+                        dimension: 4,
+                      ),
+                      Text(
+                        'days',
+                        style: context.theme.primaryTextTheme.bodyMedium
+                            ?.copyWith(
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.stone400),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomAppBar(
         height: 110,

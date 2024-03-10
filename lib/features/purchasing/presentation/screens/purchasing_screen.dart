@@ -18,10 +18,11 @@ class PurchasingScreen extends StatelessWidget {
                 Navigator.of(context).pop();
               },
               child: SvgPicture.asset(Assets.backButton))),
-      body: Column(children: [
+      body: Column(mainAxisSize: MainAxisSize.min, children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -29,30 +30,33 @@ class PurchasingScreen extends StatelessWidget {
                 style: context.theme.primaryTextTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.w600, color: AppColors.black),
               ),
-              Row(
-                children: [
-                  Text(
-                    'Agrizy',
-                    style: context.theme.primaryTextTheme.bodyMedium?.copyWith(
+              Flexible(
+                child: Row(
+                  children: [
+                    Text(
+                      'Agrizy',
+                      style:
+                          context.theme.primaryTextTheme.bodyMedium?.copyWith(
+                        color: AppColors.stone500,
+                      ),
+                    ),
+                    const Icon(
+                      Icons.arrow_back_sharp,
                       color: AppColors.stone500,
                     ),
-                  ),
-                  const Icon(
-                    Icons.arrow_back_sharp,
-                    color: AppColors.stone500,
-                  ),
-                  Text(
-                    'Keshav Industries',
-                    style: context.theme.primaryTextTheme.bodyMedium
-                        ?.copyWith(color: AppColors.stone500),
-                  )
-                ],
+                    Text(
+                      'Keshav Industries',
+                      style: context.theme.primaryTextTheme.bodyMedium
+                          ?.copyWith(color: AppColors.stone500),
+                    )
+                  ],
+                ),
               ),
             ],
           ),
         ),
         const Divider(),
-        const Expanded(child: PurchaseWidget())
+        const Flexible(child: PurchaseWidget())
       ]),
     );
   }

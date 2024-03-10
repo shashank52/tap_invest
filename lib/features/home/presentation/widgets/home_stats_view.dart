@@ -51,7 +51,7 @@ class HomeStatsView extends StatelessWidget {
                             style: context.theme.primaryTextTheme.bodyMedium
                                 ?.copyWith(
                                     fontWeight: FontWeight.w500,
-                                    color: AppColors.quickSilver),
+                                    color: AppColors.stone400),
                           )
                         ],
                       ),
@@ -78,7 +78,7 @@ class HomeStatsView extends StatelessWidget {
                               style: context.theme.primaryTextTheme.bodyMedium
                                   ?.copyWith(
                                       fontWeight: FontWeight.w500,
-                                      color: AppColors.quickSilver),
+                                      color: AppColors.stone400),
                             )
                           ],
                         ),
@@ -107,7 +107,7 @@ class HomeStatsView extends StatelessWidget {
                             ),
                             const Icon(
                               Icons.percent,
-                              color: AppColors.quickSilver,
+                              color: AppColors.stone400,
                             ),
                           ],
                         ),
@@ -132,7 +132,7 @@ class HomeStatsView extends StatelessWidget {
                             ),
                             const Icon(
                               Icons.percent,
-                              color: AppColors.quickSilver,
+                              color: AppColors.stone400,
                             ),
                           ],
                         ),
