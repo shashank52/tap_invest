@@ -5,4 +5,6 @@ class Assets {
   static const documentInvoice = 'assets/images/svg/document_invoice.svg';
   static const documentCompany = 'assets/images/svg/document_company.svg';
   static const download = 'assets/images/svg/download.svg';
+  static const backButton = 'assets/images/svg/back_button.svg';
+  static const ruppee = 'assets/images/svg/ruppee.svg';
 }

@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tap_invest/core/app_padding.dart';
 import 'package:tap_invest/core/extensions/context.dart';
 import 'package:tap_invest/core/theme/colors.dart';
+import 'package:tap_invest/features/home/presentation/widgets/home_stats_view.dart';
 
 import '../../../../core/assets.dart';
 
@@ -16,6 +17,7 @@ class HomeWidget extends StatelessWidget {
           AppPadding.mediumLeftPadding, 0, AppPadding.mediumRightPadding, 32),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           //Logo
           SvgPicture.asset(
@@ -61,12 +63,8 @@ class HomeWidget extends StatelessWidget {
           const SizedBox.square(
             dimension: 16,
           ),
-          // grid view
-          const Text('Grid View'),
-          const SizedBox.square(
-            dimension: 16,
-          ),
-          
+
+          const Flexible(child: HomeStatsView()),
         ],
       ),
     );

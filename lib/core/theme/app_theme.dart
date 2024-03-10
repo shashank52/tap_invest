@@ -79,6 +79,7 @@ class AppTheme {
   static ElevatedButtonThemeData elevatedButtonThemeData =
       ElevatedButtonThemeData(
     style: ButtonStyle(
+      elevation: MaterialStateProperty.all(2),
       padding: MaterialStateProperty.all(
         const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       ),
@@ -110,6 +111,18 @@ class AppTheme {
       ),
     ),
   );
+  static ChipThemeData chipThemeData = const ChipThemeData(
+      showCheckmark: false,
+      backgroundColor: AppColors.stone200,
+      disabledColor: AppColors.stone200,
+      selectedColor: AppColors.green700,
+      // labelStyle: AppTheme.primaryTextTheme.labelSmall
+      //     ?.copyWith(color: AppColors.stone500, fontWeight: FontWeight.w600),
+      // secondaryLabelStyle: AppTheme.primaryTextTheme.labelSmall
+      //     ?.copyWith(color: AppColors.white, fontWeight: FontWeight.w600),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(4))));
   static BoxDecoration boxDecoration = BoxDecoration(
       borderRadius: BorderRadius.circular(8),
       border: Border.all(width: 1, color: AppColors.stone200));
@@ -118,6 +131,7 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.stone50,
       useMaterial3: true,
       cardTheme: cardTheme,
+      chipTheme: chipThemeData,
       elevatedButtonTheme: elevatedButtonThemeData,
       bottomAppBarTheme: BottomAppBarTheme(
           color: Colors.white,

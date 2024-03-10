@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tap_invest/core/extensions/context.dart';
+import 'package:tap_invest/core/routes.dart';
 import 'package:tap_invest/core/theme/colors.dart';
 import 'package:tap_invest/features/home/presentation/widgets/documents_widget.dart';
 import 'package:tap_invest/features/home/presentation/widgets/highlight_widget.dart';
 import 'package:tap_invest/features/home/presentation/widgets/home_widget.dart';
+import 'package:tap_invest/features/home/presentation/widgets/key_metrics_widget.dart';
 import 'package:tap_invest/features/home/presentation/widgets/partners_wrapper_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -40,6 +42,8 @@ class HomeScreen extends StatelessWidget {
           Divider(),
           Flexible(child: HighlightWidget()),
           Divider(),
+          Flexible(child: KeyMetricsWidget()),
+          Divider(),
           Flexible(child: DocumentWidget())
         ],
       )),
@@ -71,10 +75,12 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const Spacer(),
             Flexible(
+              flex: 2,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.purchasing);
+                  },
                   child: Text(
                     'Tap to Invest',
                     style: context.theme.primaryTextTheme.bodyMedium?.copyWith(

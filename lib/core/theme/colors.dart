@@ -11,5 +11,9 @@ class AppColors {
   static const Color stone700 = Color(0xFF44403C);
   static const Color charcoal = Color(0xFF374151);
   static const Color greenPigment = Color(0xFF16A34A);
-  static const Color darkSpringGreen= Color(0xFF15803D);
+  static const Color darkSpringGreen = Color(0xFF15803D);
+  static const Color black = Color(0xFF000000);
+  static const Color independence = Color(0xFF475569);
+  static const Color quickSilver = Color(0xFFA8A29E);
+  static const Color eerieBlack = Color(0xFF1C1917);
 }
